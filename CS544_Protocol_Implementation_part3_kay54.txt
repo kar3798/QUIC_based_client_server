@@ -1,0 +1,53 @@
+CHAT APPLICATION MODIFICATIONS
+================================
+
+OVERVIEW
+--------
+Modified the original QUIC echo server/client (from the repo directory 
+CS544-Class-Demo-Files/quic/C-all-in-one)to create a multi-user chat application.
+
+KEY CHANGES
+-----------
+
+Protocol Updates:
+- ALPN: Changed from "quicecho" to "quicchat"
+- Timeout: Increased from 1 second to 60 seconds for persistent chat sessions
+- Streams: Increased PeerBidiStreamCount from 1 to 10 for multiple concurrent users
+
+Authentication System:
+- Added user credential validation with hardcoded users (alice, bob, charlie)
+- Implemented login flow with LOGIN:username:password format
+- Added session management with unique client IDs (UCIDs)
+
+Chat Features:
+- Multi-user support: Track up to 10 concurrent users
+- Message broadcasting: Messages sent to all connected clients
+- User management: Join/leave notifications, online user list
+- Protocol Data Units (PDUs): Structured message format with headers
+
+Server Enhancements:
+- Real-time chat input handling (type messages, /users command, quit)
+- Client state tracking (INIT → AUTH → CHAT → DISCON)
+- Broadcast messaging to all authenticated users
+- Graceful shutdown with client notifications
+
+Client Enhancements:
+- Interactive login prompts for username/password
+- Continuous message input/output
+- Real-time message display with sender identification
+- Graceful disconnect handling
+
+Code Modifications: 
+- From line 90 to 460 are the functions I have defined.
+- I have used these functions in pre-existing RunClient and RunServer functions
+to modify the demo code in my chat application.
+
+CORE DIFFERENCES
+----------------
+Feature         | Original Echo              | Chat Application
+----------------|----------------------------|---------------------------
+Purpose         | Send/receive single msg    | Persistent multi-user chat
+Users           | Single client              | Multiple concurrent users
+Authentication  | None                       | Username/password required
+Session         | One-time exchange          | Persistent until quit
+Broadcasting    | No                         | Yes, to all connected users
