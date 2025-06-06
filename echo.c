@@ -1152,8 +1152,8 @@ ClientStreamCallback(
         // Both directions of the stream have been shut down and MsQuic is done
         // with the stream. It can now be safely cleaned up.
         //
-        printf("[DEBUG] Shutdown complete event\n");
-        printf("[strm][%p] All done\n", Stream);
+        //printf("[DEBUG] Shutdown complete event\n");
+        //printf("[strm][%p] All done\n", Stream);
         if (!Event->SHUTDOWN_COMPLETE.AppCloseInProgress) {
             MsQuic->StreamClose(Stream);
         }
@@ -1315,7 +1315,7 @@ ClientConnectionCallback(
         // The connection has completed the shutdown process and is ready to be
         // safely cleaned up.
         //
-        printf("[conn][%p] All done\n", Connection);
+        printf("%s All done\n", GlobalClientUsername);
         if (!Event->SHUTDOWN_COMPLETE.AppCloseInProgress) {
             MsQuic->ConnectionClose(Connection);
         }
@@ -1532,7 +1532,7 @@ RunClient(
             }
             // Close Client
             if (strcmp(Input, "quit") == 0) {
-                printf("Disconnecting...\n");
+                printf("[CLIENT]: [Info] Disconnected from server - State: DISCON\n");
                 if (GlobalClientStream != NULL) {
                     MsQuic->StreamShutdown(GlobalClientStream, QUIC_STREAM_SHUTDOWN_FLAG_GRACEFUL, 0);
                 }
