@@ -122,7 +122,14 @@ If you don’t already have TLS certificates, you can generate self-signed ones:
 
 ---
 
-10. References
+10. Additional Documents
+-------
+
+- Video Demo - https://1513041.mediaspace.kaltura.com/media/1_5wky6w3u
+- For chat modifications overview refer to CS544_Protocol_Implementation_part3_kay54.txt
+---
+
+11. References
 --------------
 
 - MsQuic on GitHub: https://github.com/microsoft/msquic
