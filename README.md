@@ -75,6 +75,9 @@ If you don’t already have TLS certificates, you can generate self-signed ones:
 
     ./echo -server -cert_file:certs/quic_certificate.pem -key_file:certs/quic_private_key.pem
 
+- Type messages to chat.
+- Type '/users' to see the online users.
+
 ---
 
 6. Run the Client
