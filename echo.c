@@ -1014,12 +1014,8 @@ RunServer(
 		    printf("Shutting down server...\n");
 		    
 		    // Notify all clients that server is shutting down
-    	            broadcast_message("SERVER", "*** Server is shutting down ***", NULL);
-    	            
-    	            #ifndef _WIN32
-        		usleep(100000);  // 100ms
-    	            #endif
-    	            
+    	            broadcast_message("SERVER", "*** Server is shutting down ***\n[CLIENT]: [Info] Disconnected from server - State: DISCON\n Type ""quit"" to exit\n", NULL);
+    	              	            
     	            raise(SIGINT);
     	            
 		    break;
@@ -1540,7 +1536,7 @@ RunClient(
             }
             // Close Client
             if (strcmp(Input, "quit") == 0) {
-                printf("[CLIENT]: [Info] Disconnected from server - State: DISCON\n");
+                // printf("[CLIENT]: [Info] Disconnected from server - State: DISCON\n");
                 if (GlobalClientStream != NULL) {
                     MsQuic->StreamShutdown(GlobalClientStream, QUIC_STREAM_SHUTDOWN_FLAG_GRACEFUL, 0);
                 }
