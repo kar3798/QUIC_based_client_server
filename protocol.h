@@ -54,7 +54,6 @@ void build_header(ChatMessageHeader* header,
 
 void serialize_header(const ChatMessageHeader* header, uint8_t* buffer);
 void deserialize_header(const uint8_t* buffer, ChatMessageHeader* header);
-void print_header(const ChatMessageHeader* header);
 
 #endif //CHAT_APP_PROTOCOL_H
 
