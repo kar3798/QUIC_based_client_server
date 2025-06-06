@@ -13,10 +13,10 @@
 #include <string.h>
 #include <time.h>
 #include <stdint.h>
-
+#include <unistd.h>
 #include "protocol.h"
 #include "utils.h"
-//#include "users.h"
+#include <signal.h>
 
 #include "quicpatch.h"
 #include "quichelper.h"
@@ -1015,7 +1015,15 @@ RunServer(
 		    
 		    // Notify all clients that server is shutting down
     	            broadcast_message("SERVER", "*** Server is shutting down ***", NULL);
+    	            
+    	            #ifndef _WIN32
+        		usleep(100000);  // 100ms
+    	            #endif
+    	            
+    	            raise(SIGINT);
+    	            
 		    break;
+		    	    
 		}
 		
 		if (strcmp(Input, "/users") == 0) {
