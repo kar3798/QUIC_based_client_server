@@ -56,7 +56,7 @@ Copy the built library so your app can link to it:
 
 From your project directory (where echo.c, protocol.c, and utils.c are located):
 
-    gcc -o echo echo.c protocol.c utils.c -lmsquic -lssl -lcrypto -lpthread -lm
+     gcc -o echo echo.c protocol.c utils.c -lmsquic -lssl -lcrypto -lpthread -lm
 
 ---
 
