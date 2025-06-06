@@ -1,4 +1,4 @@
-Chat/Echo Server (MsQuic + OpenSSL, C)
+Chat Application (MsQuic + OpenSSL, C)
 =======================================
 
 A secure chat and echo server using MsQuic (https://github.com/microsoft/msquic) and OpenSSL, built in C.
