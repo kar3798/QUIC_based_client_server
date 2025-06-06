@@ -36,14 +36,3 @@ void deserialize_header(const uint8_t* buffer, ChatMessageHeader* header) {
     memcpy(header, buffer, sizeof(ChatMessageHeader));
 }
 
-// Utility to print a header for debugging
-void print_header(const ChatMessageHeader* header) {
-    printf("Header:\n");
-    printf("  Version: %x\n", header->version);
-    printf("  Type: %u\n", header->msg_type);
-    printf("  Length: %u bytes\n", header->length);
-    printf("  Msg ID: %u\n", header->msg_id);
-    printf("  User ID: %u\n", header->user_id);
-    printf("  Timestamp: %llu\n", (unsigned long long)header->timestamp);
-}
-
